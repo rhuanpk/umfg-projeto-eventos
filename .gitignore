@@ -107,8 +107,10 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # Eclipse m2e generated files
-# Eclipse Core
-.project
+# >>> Start: COMMENTED MANUALLY <<<
+## Eclipse Core
+#.project
+# >>> End: COMMENTED MANUALLY <<<
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
