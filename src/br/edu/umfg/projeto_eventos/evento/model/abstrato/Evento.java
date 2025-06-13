@@ -26,10 +26,15 @@ public abstract class Evento {
 	private Boolean aberto;
 	private String cod;
 	private LocalDateTime dataLimiteInscricao;
+	
+	// refatorar para deixar apenas o set
 	private List<Inscricao> inscricoes = new ArrayList<Inscricao>();
 	private Set<Inscricao> vInscricoes = new HashSet<Inscricao>();
+	
+	
 	private List<Apresentador> apresentadores = new ArrayList<Apresentador>();
 	private Set<Apresentador> vApresentadores = new HashSet<Apresentador>();
+	
 	
 	public Evento(String nome, String descricao, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim, String local, 
 			Integer vagas, Float valorInscricao, LocalDateTime dataLimiteInscricao) throws NoSuchAlgorithmException{

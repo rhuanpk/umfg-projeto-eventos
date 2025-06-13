@@ -1,6 +1,7 @@
 package br.edu.umfg.projeto_eventos.evento.model.solido;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,8 +9,8 @@ import java.util.Set;
 
 public class Agenda {
     private String nome;
-    private LocalDate dataInicio;
-    private LocalDate dataFim;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataFim;
     private List<Palestra> palestras = new ArrayList<>();
     private Set<Palestra> vPalestras = new HashSet<>();
     private List<MiniCurso> miniCursos = new ArrayList<>();
@@ -19,7 +20,7 @@ public class Agenda {
     private List<Workshop> workshops = new ArrayList<>();
     private Set<Workshop> vWorkshops = new HashSet<>();
 
-    public Agenda(String descricao, LocalDate dataInicio, LocalDate dataFim, List<Palestra> palestras, Set<Palestra> vPalestras, List<MiniCurso> miniCursos, Set<MiniCurso> vMinicurso, List<Seminario> seminarios, Set<Seminario> vSeminarios, List<Workshop> workshops, Set<Workshop> vWorkshops) {
+    public Agenda(String descricao, LocalDateTime dataInicio, LocalDateTime dataFim, List<Palestra> palestras, Set<Palestra> vPalestras, List<MiniCurso> miniCursos, Set<MiniCurso> vMinicurso, List<Seminario> seminarios, Set<Seminario> vSeminarios, List<Workshop> workshops, Set<Workshop> vWorkshops) {
         setNome(descricao);
         setDataInicio(dataInicio);
         setDataFim(dataFim);
@@ -47,10 +48,10 @@ public class Agenda {
         this.vWorkshops = agenda.getvWorkshops();
     }
 
-    public Agenda(String descricao, LocalDate dataInicio, LocalDate dataFim){
-        this.nome = descricao;
-        this.dataFim = dataFim;
-        this.dataInicio = dataInicio;
+    public Agenda(String nome, LocalDateTime dataInicio, LocalDateTime dataFim) throws IllegalArgumentException{
+        setNome(nome);
+        setDataFim(dataFim);
+        setDataInicio(dataInicio);
     }
 
     public String getNome() {
@@ -58,22 +59,27 @@ public class Agenda {
     }
 
     public void setNome(String descricao) {
-        this.nome = descricao;
+    	try {
+    		this.nome = descricao;
+    	} catch(IllegalArgumentException e) {
+    	      throw new IllegalArgumentException("Nome inválido");
+    	}
+  
     }
 
-    public LocalDate getDataInicio() {
+    public LocalDateTime getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
+    public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public LocalDate getDataFim() {
+    public LocalDateTime getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(LocalDate dataFim) {
+    public void setDataFim(LocalDateTime dataFim) {
         this.dataFim = dataFim;
     }
 
